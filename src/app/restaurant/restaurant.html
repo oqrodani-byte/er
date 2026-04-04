@@ -1,0 +1,32 @@
+<p>restaurant works!</p>
+
+
+ <button (click)="sort()">{{asc}}</button>
+
+<div class="btns">
+  <button (click)="showAll()">All</button>
+   @for (item of categories; track $index) {
+      <button (click)="filterByCat(item.id)">{{item.name}}</button>
+   }
+</div>
+
+<input type="" [(ngModel)]="rame" (ngModelChange)="filter()" >
+<h1>{{rame}}</h1>
+
+
+@let randerProduct = filterproduct.length > 0 ? filterproduct : products;
+
+
+<main class="d-flex" style="flex-wrap: wrap;">
+
+ @for (item of randerProduct; track $index) {
+  <div class="card" style="width: 18rem;" (click)="getId(item)">
+  <img [src]="item.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.price}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+}
+</main>
